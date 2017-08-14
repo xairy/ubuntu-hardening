@@ -1,7 +1,7 @@
 # ubuntu-hardening
 
 Some random simple tips on how to improve security of an Ubuntu Desktop installation. 
-The instructions are based on Ubuntu 16.04.2 (and Linux Minut 18.1).
+The instructions are based on Ubuntu 16.04.2 (and Linux Mint 18.1).
 I definitely recommend reading up on each step yourself instead of just blindly following them.
 
 ## Set BIOS/UEFI password
@@ -10,7 +10,7 @@ Enable and set BIOS/UEFI password.
 The exact steps for this depend on the particular hardware and firmware that you have.
 Google it.
 
-## Enable full disk entryption
+## Enable full disk encryption
 
 During installation select the checkbox `Encrypt the new Ubuntu installation for security`.
 
@@ -92,7 +92,7 @@ sudo systemctl disable ntp
 
 Now reboot and make sure these services are not running.
 
-## Restict information exposed by the kernel
+## Restrict information exposed by the kernel
 
 Add the following lines to `/etc/sysctl.conf`.
 
@@ -190,7 +190,7 @@ allow-guest=false
 
 Now reboot.
 
-Make sure login as guest is not avaiable on the login screen.
+Make sure login as guest is not available on the login screen.
 
 ## TODO
 
