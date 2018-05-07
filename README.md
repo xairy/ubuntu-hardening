@@ -141,6 +141,12 @@ $ unshare -U
 unshare: unshare failed: Operation not permitted
 ```
 
+## Disable unprivileged BPF
+
+```
+echo 1 | sudo tee /proc/sys/kernel/unprivileged_bpf_disabled
+```
+
 ## Enable firewall
 
 Disable unwanted incoming packets:
@@ -201,7 +207,5 @@ Make sure login as guest is not available on the login screen.
 
 Other things you can do.
 
-- Use a different OS
-- Secure boot
 - Custom kernel / grsecurity
 - AppArmor / SELinux
