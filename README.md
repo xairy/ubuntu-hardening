@@ -98,7 +98,7 @@ Add the following lines to `/etc/sysctl.conf`.
 
 Disable system log being visible to anybody:
 ```
-kernel.dmesg_restrict = 1
+kernel.dmesg_restrict=1
 ```
 
 Run `sudo sysctl -p` after adding settings to `/etc/sysctl.conf` here and below.
@@ -111,7 +111,7 @@ dmesg: read kernel buffer failed: Operation not permitted
 
 Disable kernel pointers being shown:
 ```
-kernel.kptr_restrict = 2
+kernel.kptr_restrict=2
 ```
 
 Check:
@@ -132,7 +132,7 @@ This significantly reduces kernel attack surface.
 
 Add this line `/etc/sysctl.conf`:
 ```
-kernel.unprivileged_userns_clone = 0
+kernel.unprivileged_userns_clone=0
 ```
 
 Check:
@@ -143,8 +143,9 @@ unshare: unshare failed: Operation not permitted
 
 ## Disable unprivileged BPF
 
+Add this line `/etc/sysctl.conf`:
 ```
-echo 1 | sudo tee /proc/sys/kernel/unprivileged_bpf_disabled
+kernel.unprivileged_bpf_disabled=1
 ```
 
 ## Enable firewall
@@ -159,7 +160,7 @@ sudo ufw default deny incoming
 
 Add these lines to `/etc/sysctl.conf`:
 ``` bash
-net.ipv6.conf.all.disable_ipv6=1  
+net.ipv6.conf.all.disable_ipv6=1
 net.ipv6.conf.default.disable_ipv6=1  
 net.ipv6.conf.lo.disable_ipv6=1
 ```
@@ -198,14 +199,11 @@ Now reboot.
 
 Make sure login as guest is not available on the login screen.
 
-## TODO
-
-- Whitelist kernel modules
-- Whitelist USB devices
-
 ## More
 
 Other things you can do.
 
+- Whitelist kernel modules
+- Whitelist USB devices
 - Custom kernel / grsecurity
 - AppArmor / SELinux
